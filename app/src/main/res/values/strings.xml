@@ -3,4 +3,6 @@
     <string name="api_key">9610e24872b8b9b8aa0fe214baa00bb1</string>
     <string name="backdrop_url_extra">backdropUrl</string>
     <string name="description_extra">descriptionExtra</string>
+    <string name="budget">Budget</string>
+    <string name="revenue">Revenue</string>
 </resources>

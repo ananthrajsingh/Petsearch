@@ -48,12 +48,13 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
     @Override
     public void onMovieClick(View view, int position) {
-        Toast.makeText(this, "Item clicked at " + position, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, "Item clicked at " + position, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MovieDetailActivity.class);
         Movie currentMovie = mMovieList.get(position);
         intent.putExtra("BACKDROP-URL-EXTRA", currentMovie.getBackdropImageUrl());
         intent.putExtra("DESCRIPTION-EXTRA", currentMovie.getDescription());
         intent.putExtra("TITLE-EXTRA", currentMovie.getName());
+        intent.putExtra("ID", currentMovie.getId());
         startActivity(intent);
     }
 
