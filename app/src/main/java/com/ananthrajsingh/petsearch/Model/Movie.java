@@ -10,14 +10,24 @@ public class Movie {
     private float rating;
     private String language;
     private String imageUrl;
+    private int id;
 
-    public Movie(String name, String description, String releaseDate, float rating, String language, String imageUrl) {
+    public Movie(String name, String description, String releaseDate, float rating, String language, String imageUrl, int id) {
         this.name = name;
         this.description = description;
         this.releaseDate = releaseDate;
         this.rating = rating;
         this.language = language;
         this.imageUrl = imageUrl;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getImageUrl() {

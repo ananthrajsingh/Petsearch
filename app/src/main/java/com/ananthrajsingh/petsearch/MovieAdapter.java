@@ -68,7 +68,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         TextView language;
         TextView rating;
 
-        public MovieViewHolder(View itemView){
+        private MovieViewHolder(View itemView){
             super(itemView);
             cover = itemView.findViewById(R.id.movie_cover_iv);
             title = itemView.findViewById(R.id.movie_title_tv);
