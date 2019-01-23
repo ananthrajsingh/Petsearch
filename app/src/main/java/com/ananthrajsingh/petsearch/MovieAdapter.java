@@ -1,6 +1,7 @@
 package com.ananthrajsingh.petsearch;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ananthrajsingh.petsearch.Model.Movie;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -39,8 +41,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int i) {
+        //TODO Deal with cover image
         Movie currentMovie = mMovieArrayList.get(i);
-        holder.
+        Uri uri = Uri.parse(currentMovie.getImageUrl());
+        Glide.with(mContext)
+                .load(uri)
+                .into(holder.cover);
+        holder.title.setText(currentMovie.getName());
+        holder.description.setText(currentMovie.getDescription());
+        holder.rating.setText(Float.toString(currentMovie.getRating()));
+        holder.date.setText(currentMovie.getReleaseDate());
+        holder.language.setText(currentMovie.getLanguage());
+
     }
 
     @Override
