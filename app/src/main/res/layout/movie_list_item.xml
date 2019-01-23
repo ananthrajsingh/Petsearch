@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/movie_cover_iv"
+        android:layout_width="96dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/listTextColor" />
+
+    <TextView
+        android:id="@+id/movie_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/listTextColor"
+        android:textSize="24sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toEndOf="@+id/movie_cover_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Baby Driver" />
+
+    <TextView
+        android:id="@+id/movie_description_tv"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/listTextColor"
+        app:layout_constraintStart_toEndOf="@+id/movie_cover_iv"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title_tv"
+        tools:text="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio." />
+
+    <TextView
+        android:id="@+id/movie_rating_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/movie_cover_iv"
+        app:layout_constraintStart_toEndOf="@+id/movie_cover_iv"
+        tools:text="9.2" />
+
+    <TextView
+        android:id="@+id/release_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/movie_cover_iv"
+        app:layout_constraintEnd_toStartOf="@+id/movie_language_tv"
+        app:layout_constraintStart_toEndOf="@+id/movie_rating_tv"
+        tools:text="18th June 2017" />
+
+    <TextView
+        android:id="@+id/movie_language_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/movie_cover_iv"
+        app:layout_constraintEnd_toEndOf="@+id/movie_description_tv"
+        tools:text="EN"/>
+
+    <ImageView
+        android:id="@+id/movie_details_iv"
+        android:layout_width="30dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/listTextColor" />
+
+</android.support.constraint.ConstraintLayout>
