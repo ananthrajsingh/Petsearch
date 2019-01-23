@@ -10,9 +10,10 @@ public class Movie {
     private float rating;
     private String language;
     private String imageUrl;
+    private String backdropImageUrl;
     private int id;
 
-    public Movie(String name, String description, String releaseDate, float rating, String language, String imageUrl, int id) {
+    public Movie(String name, String description, String releaseDate, float rating, String language, String imageUrl, int id, String backdropImageUrl) {
         this.name = name;
         this.description = description;
         this.releaseDate = releaseDate;
@@ -20,6 +21,15 @@ public class Movie {
         this.language = language;
         this.imageUrl = imageUrl;
         this.id = id;
+        this.backdropImageUrl = backdropImageUrl;
+    }
+
+    public String getBackdropImageUrl() {
+        return backdropImageUrl;
+    }
+
+    public void setBackdropImageUrl(String backdropImageUrl) {
+        this.backdropImageUrl = backdropImageUrl;
     }
 
     public int getId() {

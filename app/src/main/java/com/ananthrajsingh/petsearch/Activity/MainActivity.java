@@ -1,5 +1,6 @@
 package com.ananthrajsingh.petsearch.Activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,6 +49,12 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     @Override
     public void onMovieClick(View view, int position) {
         Toast.makeText(this, "Item clicked at " + position, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MovieDetailActivity.class);
+        Movie currentMovie = mMovieList.get(position);
+        intent.putExtra("BACKDROP-URL-EXTRA", currentMovie.getBackdropImageUrl());
+        intent.putExtra("DESCRIPTION-EXTRA", currentMovie.getDescription());
+        intent.putExtra("TITLE-EXTRA", currentMovie.getName());
+        startActivity(intent);
     }
 
     //TODO make static
@@ -56,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(MainActivity.this,"Json Data is downloading",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this,"Json Data is being downloaded",Toast.LENGTH_LONG).show();
 
         }
         @Override
@@ -95,7 +102,8 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
                     String imageUrl = "http://image.tmdb.org/t/p/w185" + currentMovieJsonObject.getString("poster_path");
 //                    Log.e("AsyncTask", imageUrl);
                     int id = currentMovieJsonObject.getInt("id");
-                    movieArrayList.add(new Movie(title, description, releaseDate, rating, language, imageUrl, id));
+                    String backdropImageUrl = "http://image.tmdb.org/t/p/w342" + currentMovieJsonObject.getString("backdrop_path");
+                    movieArrayList.add(new Movie(title, description, releaseDate, rating, language, imageUrl, id, backdropImageUrl));
                 }
 
                 mMovieList = movieArrayList;
