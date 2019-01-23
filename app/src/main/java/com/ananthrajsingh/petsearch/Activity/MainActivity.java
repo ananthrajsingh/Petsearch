@@ -1,7 +1,9 @@
-package com.ananthrajsingh.petsearch;
+package com.ananthrajsingh.petsearch.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.ananthrajsingh.petsearch.R;
 
 public class MainActivity extends AppCompatActivity {
 
