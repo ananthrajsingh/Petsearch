@@ -53,6 +53,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         holder.date.setText(currentMovie.getReleaseDate());
         holder.language.setText(currentMovie.getLanguage());
 
+
     }
 
     @Override
@@ -76,6 +77,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             date = itemView.findViewById(R.id.release_date_tv);
             language = itemView.findViewById(R.id.movie_language_tv);
             rating = itemView.findViewById(R.id.movie_rating_tv);
+            itemView.setOnClickListener(this);
         }
 
         @Override
