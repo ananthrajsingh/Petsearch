@@ -44,14 +44,26 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         //TODO Deal with cover image
         Movie currentMovie = mMovieArrayList.get(i);
         Uri uri = Uri.parse(currentMovie.getImageUrl());
+        float rating = currentMovie.getRating();
         Glide.with(mContext)
                 .load(uri)
                 .into(holder.cover);
         holder.title.setText(currentMovie.getName());
         holder.description.setText(currentMovie.getDescription());
-        holder.rating.setText(Float.toString(currentMovie.getRating()));
+        holder.rating.setText(Float.toString(rating));
         holder.date.setText(currentMovie.getReleaseDate());
         holder.language.setText(currentMovie.getLanguage());
+
+        if (rating > 7.5){
+            holder.rating.setBackgroundColor(mContext.getResources().getColor(R.color.ratingGreen));
+        }
+        else if (rating < 5){
+            holder.rating.setBackgroundColor(mContext.getResources().getColor(R.color.ratingRed));
+        }
+        else{
+            holder.rating.setBackgroundColor(mContext.getResources().getColor(R.color.ratingYellow));
+
+        }
 
 
     }

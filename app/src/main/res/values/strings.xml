@@ -5,4 +5,7 @@
     <string name="description_extra">descriptionExtra</string>
     <string name="budget">Budget</string>
     <string name="revenue">Revenue</string>
+    <string name="sort">Sort</string>
+    <string name="search">Search</string>
+    <string name="popular_movies">Popular Movies</string>
 </resources>

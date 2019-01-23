@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ananthrajsingh.petsearch.Model.Movie;
@@ -34,15 +38,19 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     public ArrayList<Movie> mMovieList;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
+    private ProgressBar mProgressBar;
+    private Toast mToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mRecyclerView = findViewById(R.id.movies_recycler_view);
+        mProgressBar = findViewById(R.id.main_progress_bar);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
+        getSupportActionBar().setTitle(R.string.popular_movies);
         new GetMovies().execute();
     }
 
@@ -61,12 +69,12 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     //TODO make static
     private class GetMovies extends AsyncTask<Void, Void, Void>{
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Toast.makeText(MainActivity.this,"Json Data is being downloaded",Toast.LENGTH_LONG).show();
-
-        }
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//            Toast.makeText(MainActivity.this,"Json Data is being downloaded",Toast.LENGTH_LONG).show();
+//
+//        }
         @Override
         protected Void doInBackground(Void... voids) {
             HttpURLConnection connection = null;
@@ -135,9 +143,31 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
             super.onPostExecute(aVoid);
             MovieAdapter movieAdapter = new MovieAdapter(getBaseContext(), mMovieList);
             movieAdapter.setMovieClickListener(MainActivity.this);
+            mRecyclerView.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.GONE);
             mRecyclerView.setAdapter(movieAdapter);
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (mToast != null) mToast.cancel();
+        if (id == R.id.action_search){
+            mToast = Toast.makeText(this, "Search to be implemented.", Toast.LENGTH_LONG);
+            mToast.show();
+        }
+        else if (id == R.id.action_sort){
+            mToast = Toast.makeText(this, "Sort to be implemented.", Toast.LENGTH_LONG);
+            mToast.show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

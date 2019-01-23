@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name ="listTextColor">#333333</color>
+    <color name="backgroundGrey">#eceff1</color>
+    <color name="descriptionGrey">#757575</color>
+    <color name="ratingGreen">#00c853</color>
+    <color name="ratingYellow">#fbc02d</color>
+    <color name="ratingRed">#c62828</color>
+    <color name="white">#ffffff</color>
+    <color name="languageRed">#f44336</color>
 </resources>

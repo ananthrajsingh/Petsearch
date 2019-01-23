@@ -102,6 +102,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                 backdropPath = "http://image.tmdb.org/t/p/w342" + responseObject.getString("backdrop_path");
                 description = responseObject.getString("overview");
                 runtime = Integer.toString(responseObject.getInt("runtime")) + " minutes";
+                //TODO Format date according to document
                 releaseDate = responseObject.getString("release_date");
                 rating = Double.toString(responseObject.getDouble("vote_average"));
                 JSONArray genresArray = responseObject.getJSONArray("genres");
@@ -156,6 +157,9 @@ public class MovieDetailActivity extends AppCompatActivity {
             mLanguageTv.setText(language);
             mBudgetTv.setText(budget);
             mRevenueTv.setText(revenue);
+            double ratingDouble = Double.parseDouble(rating);
+            if (ratingDouble < 7.5) mRating.setBackgroundColor(getBaseContext().getResources().getColor(R.color.ratingYellow));
+            if (ratingDouble < 5) mRating.setBackgroundColor(getBaseContext().getResources().getColor(R.color.ratingRed));
         }
     }
 
