@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MovieAdapter.MovieClickListener{
     //Hardcoded url for now
-    private String mUrl = "https://api.themoviedb.org/3/movie/popular?api_key=9610e24872b8b9b8aa0fe214baa00bb1&language=en-US&page=1";
+    private String mUrl = "https://api.themoviedb.org/3/discover/movie?api_key=9610e24872b8b9b8aa0fe214baa00bb1&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
     public ArrayList<Movie> mMovieList;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
